@@ -128,7 +128,8 @@ namespace Dbf
 
         private static Encoding GetEncoding()
         {
-            return Encoding.GetEncoding("1252");
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            return Encoding.GetEncoding(1252);
         }
 
         private static string ColumnSchema(DbfColumn dbfColumn)
